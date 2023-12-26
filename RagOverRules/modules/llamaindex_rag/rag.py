@@ -21,7 +21,7 @@ class RetrieverAssistedGenerator:
                                        chunk_overlap=chunk_overlap)
         hf = HuggingFaceEmbedding(model_name=embedding_model)
         llm = LlamaCPP(model_path=llm_model)
-        self.service_context = ServiceContext(embed_model=hf, llm=llm)
+        self.service_context = ServiceContext.from_defaults(embed_model=hf, llm=llm)
         self.index = []
         self.query_engine = []
 
@@ -29,7 +29,7 @@ class RetrieverAssistedGenerator:
     def create_index(self, pdf_file):
         logger.info("Loading document")
         document = self.loader.load_data(pdf_file)
-        nodes = self.parser.get_nodes_from_documents([document])
+        nodes = self.parser.get_nodes_from_documents(document)
         logger.info("Creating index")
         self.index = VectorStoreIndex(nodes, service_context=self.service_context)
         return self.index
