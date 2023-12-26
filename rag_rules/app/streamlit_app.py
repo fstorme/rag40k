@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import sys
 sys.path.append("../../")
-from RagOverRules.modules.llamaindex_rag.rag import RetrieverAssistedGenerator
+from rag_rules.modules.llamaindex_rag.rag import RetrieverAssistedGenerator
 DATA_FILE = "../../data/pdf/regles 40K ENGLISH.pdf"
 EMBED_MODEL = "../../models/allminilm"
 LLM_MODEL = "../../models/llms/zephyr-7b-beta.Q3_K_S.gguf"
