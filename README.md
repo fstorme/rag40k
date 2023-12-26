@@ -27,7 +27,7 @@ Install the requirements :
 run the app with the command 
 
 ````
-streamlit run ./rag_rules/app/streamlit_app.py
+streamlit run ./streamlit_app.py
 ````
 
 If you run the program locally with limited resources. It can take a few minute to get a result.
